@@ -19,7 +19,7 @@ except (KeyError, AttributeError):
 def cari_dengan_duckduckgo(keyword):
     """Fungsi untuk mencari menggunakan DuckDuckGo, mengambil rangkuman teks DAN link sumber."""
     st.write("🔎 Mencari hasil **Riset** (mengambil rangkuman teks)...")
-    query = f'"{keyword}" site:eprints2.undip.ac.id OR site:digilib.uns.ac.id OR site:repository.unsoed.ac.id OR site:lib.unnes.ac.id OR site:eprints.walisongo.ac.id OR site:eprints2.undip.ac.id OR site:docrida.id OR site:sinta.kemdikbud.go.id OR site:scholar.google.com OR site:go.id OR site:ac.id'
+    query = f'"{keyword}" site:ejournal.jatengprov.go.id OR site:eprints2.undip.ac.id OR site:digilib.uns.ac.id OR site:repository.unsoed.ac.id OR site:lib.unnes.ac.id OR site:eprints.walisongo.ac.id OR site:eprints2.undip.ac.id OR site:docrida.id OR site:sinta.kemdikbud.go.id OR site:scholar.google.com OR site:go.id OR site:ac.id'
     try:
         with DDGS() as ddgs:
             results = [r for r in ddgs.text(query, max_results=7)]
@@ -41,7 +41,7 @@ def cari_dengan_duckduckgo(keyword):
 def cari_dengan_google(keyword):
     """Fungsi untuk mencari menggunakan Google, mengambil konteks berupa daftar link."""
     st.write("🔎 Mencari hasil **Riset** (mengambil daftar sumber/link)...")
-    query = f'"{keyword}" site:eprints2.undip.ac.id OR site:digilib.uns.ac.id OR site:repository.unsoed.ac.id OR site:lib.unnes.ac.id OR site:eprints.walisongo.ac.id OR site:eprints2.undip.ac.id OR site:docrida.id OR site:sinta.kemdikbud.go.id OR site:scholar.google.com OR site:go.id OR site:ac.id'
+    query = f'"{keyword}" site:ejournal.jatengprov.go.id OR site:eprints2.undip.ac.id OR site:digilib.uns.ac.id OR site:repository.unsoed.ac.id OR site:lib.unnes.ac.id OR site:eprints.walisongo.ac.id OR site:eprints2.undip.ac.id OR site:docrida.id OR site:sinta.kemdikbud.go.id OR site:scholar.google.com OR site:go.id OR site:ac.id'
     try:
         search_results_urls = [url for url in search(query, num_results=10, sleep_interval=2)]
         if not search_results_urls:
@@ -141,4 +141,5 @@ if submitted:
                 st.warning("Tidak ditemukan informasi yang cukup relevan dari pencarian. Coba kata kunci atau mesin pencari lain.")
     else:
         st.error("Mohon masukkan topik atau kata kunci terlebih dahulu.")
+
 
