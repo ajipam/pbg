@@ -19,6 +19,7 @@ except (KeyError, AttributeError):
 def cari_dengan_duckduckgo(keyword):
     """Fungsi untuk mencari menggunakan DuckDuckGo, mengambil rangkuman teks DAN link sumber."""
     st.write("🔎 Mencari hasil **Riset** (mengambil rangkuman teks)...")
+    query = f'{keyword_lokal} (site:docrida.go.id OR site:repository.unsoed.ac.id OR site:jatengprov.go.id OR site:undip.ac.id OR site:uns.ac.id OR site:unnes.ac.id OR site:walisongo.ac.id OR site:sinta.kemdikbud.go.id)'
     query = f'"{keyword}" site:docrida.id OR site:sinta.kemdikbud.go.id OR site:scholar.google.com OR site:go.id OR site:ac.id'
     try:
         with DDGS() as ddgs:
@@ -140,4 +141,5 @@ if submitted:
             else:
                 st.warning("Tidak ditemukan informasi yang cukup relevan dari pencarian. Coba kata kunci atau mesin pencari lain.")
     else:
+
         st.error("Mohon masukkan topik atau kata kunci terlebih dahulu.")
