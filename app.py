@@ -144,17 +144,17 @@ st.write("---")
 
 with st.form("input_form"):
     keyword_input = st.text_input("Masukkan Topik atau Kata Kunci:", placeholder="Contoh: penurunan stunting di jawa tengah")
-    search_engine = st.radio("Pilih Mesin Pencari:", ('DuckDuckGo', 'Google'), horizontal=True)
+    search_engine = st.radio("Pilih Mesin Pencari:", ('Google', 'DuckDuckGo'), horizontal=True)
     submitted = st.form_submit_button("🚀 Buat Draf Lengkap")
 
 if submitted:
     if keyword_input:
         with st.spinner("Harap tunggu, proses analisis komprehensif sedang berjalan..."):
             konteks, sumber_referensi = (None, None)
-            if search_engine == 'DuckDuckGo':
-                konteks, sumber_referensi = cari_dengan_duckduckgo(keyword_input)
-            elif search_engine == 'Google':
+            if search_engine == 'Google':
                 konteks, sumber_referensi = cari_dengan_google(keyword_input)
+            elif search_engine == 'DuckDuckGo':
+                konteks, sumber_referensi = cari_dengan_duckduckgo(keyword_input)
 
             if konteks and sumber_referensi:
                 st.success("Berhasil mengumpulkan konteks & sumber!")
