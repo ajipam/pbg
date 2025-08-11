@@ -10,7 +10,9 @@ import time
 # TAMBAHKAN BARIS INI TEPAT DI BAWAH IMPORT
 st.set_page_config(
     page_title="Policy Brief Generator Jateng",
-    page_icon="📈"
+    page_icon="📈",
+    layout="wide",
+    initial_sidebar_state="auto"
 )
 # --- KONFIGURASI AI ---
 try:
