@@ -139,7 +139,7 @@ def generate_chart_code(konteks):
 
 # --- ANTARMUKA APLIKASI STREAMLIT ---
 st.title("📄 Policy Brief Generator Jawa Tengah (AI-Powered)")
-st.write("Aplikasi canggih untuk membuat draf *policy brief* lengkap dengan analisis, data, tabel, dan grafik.")
+st.write("Masukkan topik, dan biarkan AI menyusun draf *policy brief*")
 st.write("---")
 
 with st.form("input_form"):
