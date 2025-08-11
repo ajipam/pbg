@@ -19,7 +19,7 @@ except (KeyError, AttributeError):
 def cari_dengan_duckduckgo(keyword):
     st.write("🔎 Mencari dengan **DuckDuckGo**...")
     keyword_lokal = f'"{keyword} jawa tengah"'
-    query = f'{keyword_lokal} (site:docrida.id OR site:ejournal.jatengprov.go.id ORD site:jatengprov.go.id OR site:undip.ac.id OR site:uns.ac.id OR site:unnes.ac.id OR site:walisongo.ac.id OR site:sinta.kemdikbud.go.id OR site:go.id OR site:ac.id)'
+    query = f'{keyword_lokal} (site:docrida.id OR site:ejournal.jatengprov.go.id ORD site:jatengprov.go.id OR site:undip.ac.id OR site:uns.ac.id OR site:unnes.ac.id OR site:walisongo.ac.id OR site:sinta.kemdikbud.go.id OR site:rama.kemdikbud.go.id OR site:go.id OR site:ac.id)'
     try:
         with DDGS() as ddgs:
             results = [r for r in ddgs.text(query, max_results=7)]
@@ -35,7 +35,7 @@ def cari_dengan_duckduckgo(keyword):
 def cari_dengan_google(keyword):
     st.write("🔎 Mencari dengan **Google**...")
     keyword_lokal = f'"{keyword} jawa tengah"'
-    query = f'{keyword_lokal} (site:docrida.id OR site:ejournal.jatengprov.go.id ORD site:jatengprov.go.id OR site:undip.ac.id OR site:uns.ac.id OR site:unnes.ac.id OR site:walisongo.ac.id OR site:sinta.kemdikbud.go.id OR site:go.id OR site:ac.id)'
+    query = f'{keyword_lokal} (site:docrida.id OR site:ejournal.jatengprov.go.id ORD site:jatengprov.go.id OR site:undip.ac.id OR site:uns.ac.id OR site:unnes.ac.id OR site:walisongo.ac.id OR site:sinta.kemdikbud.go.id OR site:rama.kemdikbud.go.id OR site:go.id OR site:ac.id)'
     try:
         search_results_urls = [url for url in search(query, num_results=10, sleep_interval=2)]
         if not search_results_urls: return None, None
