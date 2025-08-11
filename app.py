@@ -144,7 +144,7 @@ st.write("---")
 
 with st.form("input_form"):
     keyword_input = st.text_input("Masukkan Topik atau Kata Kunci:", placeholder="Contoh: penurunan stunting di jawa tengah")
-    search_engine = st.radio("Pilih Mesin Pencari:", ('DuckDuckGo', 'Google'), horizontal=True)
+    search_engine = st.radio("Pilih Mesin Pencari:", ('Mesin 1', 'Mesin 2'), horizontal=True)
     submitted = st.form_submit_button("🚀 Buat Draf Lengkap")
 
 if submitted:
