@@ -48,7 +48,7 @@ def cari_dengan_duckduckgo(keyword):
     # ... (kode fungsi ini sama seperti sebelumnya)
     st.write("🔎 Mencari dengan **DuckDuckGo**...")
     keyword_lokal = f'"{keyword} jawa tengah"'
-    query = f'{keyword_lokal} (site:docrida.id/riset/publikasi OR site:ejournal.jatengprov.go.id ORD site:jatengprov.go.id OR site:undip.ac.id OR site:uns.ac.id OR site:unnes.ac.id OR site:walisongo.ac.id OR site:sinta.kemdikbud.go.id OR site:rama.kemdikbud.go.id OR site:go.id OR site:ac.id)'
+    query = f'{keyword_lokal} (site:jatengprov.go.id OR site:undip.ac.id OR site:uns.ac.id OR site:unnes.ac.id OR site:walisongo.ac.id OR site:sinta.kemdikbud.go.id)'
     try:
         with DDGS() as ddgs:
             results = [r for r in ddgs.text(query, max_results=7)]
@@ -65,7 +65,7 @@ def cari_dengan_google(keyword):
     # ... (kode fungsi ini sama seperti sebelumnya)
     st.write("🔎 Mencari dengan **Google**...")
     keyword_lokal = f'"{keyword} jawa tengah"'
-    query = f'{keyword_lokal} (site:docrida.id/riset/publikasi OR site:ejournal.jatengprov.go.id ORD site:jatengprov.go.id OR site:undip.ac.id OR site:uns.ac.id OR site:unnes.ac.id OR site:walisongo.ac.id OR site:sinta.kemdikbud.go.id OR site:rama.kemdikbud.go.id OR site:go.id OR site:ac.id)'
+    query = f'{keyword_lokal} (site:jatengprov.go.id OR site:undip.ac.id OR site:uns.ac.id OR site:unnes.ac.id OR site:walisongo.ac.id OR site:sinta.kemdikbud.go.id)'
     try:
         search_results_urls = [url for url in search(query, num_results=10, sleep_interval=2)]
         if not search_results_urls: return None, None
@@ -168,15 +168,15 @@ st.title("📄 Policy Brief Generator Pro")
 st.write("Alat bantu AI untuk menyusun draf *policy brief* secara cepat dari berbagai sumber.")
 
 # Membuat dua Tab untuk mode yang berbeda
-tab1, tab2 = st.tabs(["Cari dari Repositori 🌐", "Unggah Dokumen PDF 📄"])
+tab1, tab2 = st.tabs(["Cari dari Web 🌐", "Unggah Dokumen PDF 📄"])
 
 # --- Logika untuk TAB 1: CARI DARI WEB ---
 with tab1:
-    st.header("Analisis Berdasarkan Pencarian Repositori")
+    st.header("Analisis Berdasarkan Pencarian Web")
     with st.form("search_form"):
         keyword_input = st.text_input("Masukkan Topik atau Kata Kunci:", placeholder="Contoh: digitalisasi umkm di solo")
         search_engine = st.radio("Pilih Mesin Pencari:", ('DuckDuckGo', 'Google'), horizontal=True)
-        submitted_search = st.form_submit_button("🚀 Buat Draf dari Repositori")
+        submitted_search = st.form_submit_button("🚀 Buat Draf dari Web")
 
     if submitted_search:
         if keyword_input:
