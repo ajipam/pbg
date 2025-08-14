@@ -12,8 +12,8 @@ import time
 # KONFIGURASI HALAMAN (dijalankan pertama kali)
 st.set_page_config(
     page_title="Policy Brief Generator Jateng",
-    page_icon="🤖",
-    layout="wide"
+    page_icon="📈",
+    layout="wide",
 )
 # ===================================================================
 
@@ -65,8 +65,7 @@ def cari_dengan_google(keyword):
     # ... (kode fungsi ini sama seperti sebelumnya)
     st.write("🔎 Mencari dengan **Google**...")
     keyword_lokal = f'"{keyword} jawa tengah"'
-    query = f'{keyword_lokal} (site:docrida.id/riset/publikasi OR site:ejournal.jatengprov.go.id ORD site:jatengprov.go.id OR site:undip.ac.id OR site:uns.ac.id OR site:unnes.ac.id OR site:walisongo.ac.id OR site:sinta.kemdikbud.go.id OR site:rama.kemdikbud.go.id OR site:go.id OR site:ac.id)\
-        '
+    query = f'{keyword_lokal} (site:docrida.id/riset/publikasi OR site:ejournal.jatengprov.go.id ORD site:jatengprov.go.id OR site:undip.ac.id OR site:uns.ac.id OR site:unnes.ac.id OR site:walisongo.ac.id OR site:sinta.kemdikbud.go.id OR site:rama.kemdikbud.go.id OR site:go.id OR site:ac.id)'
     try:
         search_results_urls = [url for url in search(query, num_results=10, sleep_interval=2)]
         if not search_results_urls: return None, None
@@ -165,8 +164,8 @@ def generate_chart_code(konteks):
         return None
 
 # --- TAMPILAN UTAMA APLIKASI ---
-st.title("🤖 📄 Policy Brief Generator Pro")
-st.write("Alat bantu AI untuk menyusun draf *policy brief* secara cepat dari berbagai sumber, termasuk pencarian repositori dan dokumen PDF Anda.")
+st.title("📄 Policy Brief Generator Pro")
+st.write("Alat bantu AI untuk menyusun draf *policy brief* secara cepat dari berbagai sumber.")
 
 # Membuat dua Tab untuk mode yang berbeda
 tab1, tab2 = st.tabs(["Cari dari Repositori 🌐", "Unggah Dokumen PDF 📄"])
@@ -176,16 +175,16 @@ with tab1:
     st.header("Analisis Berdasarkan Pencarian Repositori")
     with st.form("search_form"):
         keyword_input = st.text_input("Masukkan Topik atau Kata Kunci:", placeholder="Contoh: digitalisasi umkm di solo")
-        search_engine = st.radio("Pilih Mesin Pencari:", ('Mesin1', 'Mesin2'), horizontal=True)
+        search_engine = st.radio("Pilih Mesin Pencari:", ('DuckDuckGo', 'Google'), horizontal=True)
         submitted_search = st.form_submit_button("🚀 Buat Draf dari Repositori")
 
     if submitted_search:
         if keyword_input:
-            with st.spinner("Proses analisis komprehensif dari repositori sedang berjalan..."):
+            with st.spinner("Proses analisis komprehensif dari web sedang berjalan..."):
                 konteks, sumber_referensi = (None, None)
-                if search_engine == 'Mesin1':
+                if search_engine == 'DuckDuckGo':
                     konteks, sumber_referensi = cari_dengan_duckduckgo(keyword_input)
-                elif search_engine == 'Mesin2':
+                elif search_engine == 'Google':
                     konteks, sumber_referensi = cari_dengan_google(keyword_input)
 
                 if konteks and sumber_referensi:
@@ -241,3 +240,5 @@ with tab2:
                             except Exception as e:
                                 st.warning(f"Gagal membuat grafik: {e}")
                                 st.code(kode_grafik)
+                                st.markdown("### Sumber Dokumen")
+                st.info(f"Analisis ini dibuat berdasarkan isi dokumen: **{uploaded_file.name}**")
