@@ -14,7 +14,7 @@ import time
 # KONFIGURASI HALAMAN
 st.set_page_config(
     page_title="Policy Brief Generator Jateng",
-    page_icon="📄📈",
+    page_icon="📈",
     layout="wide"
 )
 # ===================================================================
@@ -246,4 +246,5 @@ if 'hasil_brief' in st.session_state and st.session_state.hasil_brief:
             st.markdown(f"- {url}")
     else:
         st.markdown("### Sumber Dokumen")
+
         st.info(f"Analisis ini dibuat berdasarkan dokumen yang diunggah.")
