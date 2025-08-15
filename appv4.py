@@ -242,3 +242,4 @@ with tab2:
                                 st.code(kode_grafik)
                                 st.markdown("### Sumber Dokumen")
                 st.info(f"Analisis ini dibuat berdasarkan isi dokumen: **{uploaded_file.name}**")
+
