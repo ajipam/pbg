@@ -76,7 +76,7 @@ def extract_text_from_pdf(pdf_file):
 def cari_dengan_duckduckgo(keyword):
     st.write("🔎 Mencari dengan **DuckDuckGo**...")
     keyword_lokal = f'"{keyword} jawa tengah"'
-    query = f'{keyword_lokal} (site:jatengprov.go.id OR site:undip.ac.id OR site:uns.ac.id OR site:unnes.ac.id OR site:walisongo.ac.id OR site:sinta.kemdikbud.go.id)'
+    query = f'{keyword_lokal} (site:jatengprov.go.id OR site:rin.brin.go.id OR site:undip.ac.id OR site:uns.ac.id OR site:unnes.ac.id OR site:walisongo.ac.id OR site:sinta.kemdikbud.go.id)'
     try:
         with DDGS() as ddgs:
             results = [r for r in ddgs.text(query, max_results=7)]
@@ -91,7 +91,7 @@ def cari_dengan_duckduckgo(keyword):
 def cari_dengan_google(keyword):
     st.write("🔎 Mencari dengan **Google**...")
     keyword_lokal = f'"{keyword} jawa tengah"'
-    query = f'{keyword_lokal} (site:jatengprov.go.id OR site:undip.ac.id OR site:uns.ac.id OR site:unnes.ac.id OR site:walisongo.ac.id OR site:sinta.kemdikbud.go.id)'
+    query = f'{keyword_lokal} (site:jatengprov.go.id OR site:rin.brin.go.id OR site:undip.ac.id OR site:uns.ac.id OR site:unnes.ac.id OR site:walisongo.ac.id OR site:sinta.kemdikbud.go.id)'
     try:
         search_results_urls = [url for url in search(query, num_results=10, sleep_interval=2)]
         if not search_results_urls: return None, None
@@ -248,3 +248,4 @@ if 'hasil_brief' in st.session_state and st.session_state.hasil_brief:
         st.markdown("### Sumber Dokumen")
 
         st.info(f"Analisis ini dibuat berdasarkan dokumen yang diunggah.")
+
